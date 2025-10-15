@@ -37,7 +37,9 @@
         <a href="products.html" class="nav-link text-light fw-semibold">Sản phẩm</a>
         <a href="about.html" class="nav-link text-light fw-semibold">Giới thiệu</a>
         <a href="contact.html" class="nav-link text-light fw-semibold">Liên hệ</a>
-        <a href="cart.html" class="btn btn-outline-light rounded-pill px-3 fw-semibold">🛍️</a>
+        <a href="cart.html" class="btn btn-outline-light rounded-pill px-3 fw-semibold">
+          🛍️ <span class="cart-count">0</span>
+        </a>
       </nav>
 
       <!-- Toggle (mobile) -->
@@ -149,21 +151,10 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
-
-    // Toggle mobile menu
-    const toggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => {
-      mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // Hiệu ứng header khi cuộn
-    window.addEventListener("scroll", () => {
-      const header = document.getElementById("mainHeader");
-      header.classList.toggle("scrolled", window.scrollY > 50);
-    });
   </script>
 </body>
+
 </html>

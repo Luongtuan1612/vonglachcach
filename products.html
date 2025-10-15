@@ -37,7 +37,9 @@
         <a href="products.html" class="nav-link text-light fw-semibold active">Sản phẩm</a>
         <a href="about.html" class="nav-link text-light fw-semibold">Giới thiệu</a>
         <a href="contact.html" class="nav-link text-light fw-semibold">Liên hệ</a>
-        <a href="cart.html" class="btn btn-outline-light rounded-pill px-3 fw-semibold">🛍️</a>
+        <a href="cart.html" class="btn btn-outline-light rounded-pill px-3 fw-semibold">
+          🛍️ <span class="cart-count">0</span>
+        </a>
       </nav>
 
       <!-- Toggle (mobile) -->
@@ -54,7 +56,7 @@
     </div>
   </header>
 
-  <!-- HERO (banner sản phẩm) -->
+  <!-- HERO -->
   <section class="hero d-flex align-items-center justify-content-center text-center position-relative"
     style="height: 60vh; background: url('images/banner-products.jpg') center/cover no-repeat;">
     <div class="overlay"></div>
@@ -72,8 +74,7 @@
   <section class="container py-5">
     <h3 class="text-center fw-bold mb-5" data-aos="fade-down">Sản phẩm nổi bật</h3>
     <div class="row g-4">
-
-      <!-- SP 1 -->
+      <!-- Sản phẩm mẫu -->
       <div class="col-md-3 col-sm-6" data-aos="zoom-in">
         <div class="card border-0 shadow-sm">
           <img src="images/products/sp1.jpg" class="card-img-top" alt="Vòng tay đá bảo hộ thiên nhiên">
@@ -81,15 +82,13 @@
             <h5 class="card-title">Vòng tay đá bảo hộ thiên nhiên</h5>
             <p class="text-gold fw-bold mb-2">350.000₫</p>
             <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="5"
+              data-id="1"
               data-name="Vòng tay đá bảo hộ thiên nhiên"
               data-price="350000"
               data-img="images/products/sp1.jpg">Thêm vào giỏ</button>
           </div>
         </div>
       </div>
-
-      <!-- SP 2 -->
       <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
         <div class="card border-0 shadow-sm">
           <img src="images/products/sp2.jpg" class="card-img-top" alt="Vòng tay Boho Xanh Trắng">
@@ -97,15 +96,13 @@
             <h5 class="card-title">Vòng tay Boho Xanh Trắng</h5>
             <p class="text-gold fw-bold mb-2">220.000₫</p>
             <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="6"
+              data-id="2"
               data-name="Vòng tay Boho Xanh Trắng"
               data-price="220000"
               data-img="images/products/sp2.jpg">Thêm vào giỏ</button>
           </div>
         </div>
       </div>
-
-      <!-- SP 3 -->
       <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
         <div class="card border-0 shadow-sm">
           <img src="images/products/sp3.jpg" class="card-img-top" alt="Vòng tay Cỏ 4 Lá May Mắn">
@@ -113,15 +110,13 @@
             <h5 class="card-title">Vòng tay Cỏ 4 Lá May Mắn</h5>
             <p class="text-gold fw-bold mb-2">180.000₫</p>
             <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="7"
+              data-id="3"
               data-name="Vòng tay Cỏ 4 Lá May Mắn"
               data-price="180000"
               data-img="images/products/sp3.jpg">Thêm vào giỏ</button>
           </div>
         </div>
       </div>
-
-      <!-- SP 4 -->
       <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="600">
         <div class="card border-0 shadow-sm">
           <img src="images/products/sp4.jpg" class="card-img-top" alt="Vòng tay Hoa Xanh Dễ Thương">
@@ -129,14 +124,13 @@
             <h5 class="card-title">Vòng tay Hoa Xanh Dễ Thương</h5>
             <p class="text-gold fw-bold mb-2">160.000₫</p>
             <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="8"
+              data-id="4"
               data-name="Vòng tay Hoa Xanh Dễ Thương"
               data-price="160000"
               data-img="images/products/sp4.jpg">Thêm vào giỏ</button>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -183,21 +177,11 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
-
-    // Toggle mobile menu
-    const toggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => {
-      mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // Hiệu ứng header khi cuộn
-    window.addEventListener("scroll", () => {
-      const header = document.getElementById("mainHeader");
-      header.classList.toggle("scrolled", window.scrollY > 50);
-    });
   </script>
 </body>
+
 </html>
