@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch sử đơn hàng - Vòng Lách Cách</title>
+  <link rel="icon" href="images/logo.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- CSS tùy chỉnh -->
+  <style>
+    body {
+      background: url('images/dg.jpg') center/cover fixed no-repeat;
+      color: #f1f1f1;
+    }
+
+    h2, .text-gold {
+      color: #caa75c !important;
+    }
+
+    .table {
+      color: #f1f1f1;
+      background: rgba(25, 25, 25, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .table th {
+      background: rgba(0, 0, 0, 0.9);
+      color: #f1f1f1;
+    }
+
+    .btn-gold {
+      background: #caa75c;
+      color: #111;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: #e6c57a;
+      transform: translateY(-2px);
+    }
+
+    .order-detail {
+      background: rgba(20, 20, 20, 0.95);
+      border: 1px solid rgba(202, 167, 92, 0.3);
+      border-radius: 10px;
+      padding: 25px;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .order-detail.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      background-color: #111;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+      color: #ccc;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="mainHeader" class="header fixed-top py-3 bg-dark bg-opacity-75">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="d-flex align-items-center text-decoration-none text-light">
+        <img src="images/logo.png" alt="logo" width="45" class="me-2 rounded-circle border border-light">
+        <h1 class="h5 text-uppercase fw-bold mb-0">Vòng Lách Cách</h1>
+      </a>
+
+      <nav class="navbar d-none d-md-flex gap-4">
+        <a href="index.html" class="nav-link text-light fw-semibold">Trang chủ</a>
+        <a href="products.html" class="nav-link text-light fw-semibold">Sản phẩm</a>
+        <a href="about.html" class="nav-link text-light fw-semibold">Giới thiệu</a>
+        <a href="contact.html" class="nav-link text-light fw-semibold">Liên hệ</a>
+        <a href="cart.html" class="btn btn-outline-light rounded-pill px-3 fw-semibold">🛍️</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TIÊU ĐỀ -->
+  <section class="text-center py-5" style="margin-top: 100px;">
+    <h2 class="fw-bold text-gold">Lịch sử đơn hàng</h2>
+    <p class="text-secondary">Theo dõi các đơn hàng bạn đã đặt</p>
+  </section>
+
+  <!-- DANH SÁCH ĐƠN HÀNG -->
+  <section class="container py-4" data-aos="fade-up">
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle text-center">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Khách hàng</th>
+            <th>Số điện thoại</th>
+            <th>Ngày đặt</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="orders-table"></tbody>
+      </table>
+    </div>
+
+    <!-- CHI TIẾT ĐƠN HÀNG -->
+    <div id="order-detail" class="order-detail mt-4"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="text-gold mb-1">💛 Cảm ơn bạn đã tin tưởng Vòng Lách Cách</p>
+    <p class="text-secondary mb-0">&copy; 2025 Vòng Lách Cách. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Lấy dữ liệu đơn hàng
+    const ordersTable = document.getElementById("orders-table");
+    const orderDetail = document.getElementById("order-detail");
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    // Hiển thị danh sách đơn hàng
+    function renderOrders() {
+      if (orders.length === 0) {
+        ordersTable.innerHTML = '<tr><td colspan="5" class="py-4 text-secondary">📭 Chưa có đơn hàng nào</td></tr>';
+        return;
+      }
+
+      ordersTable.innerHTML = orders.map((o, i) => `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${o.name}</td>
+          <td>${o.phone}</td>
+          <td>${o.date}</td>
+          <td>
+            <button class="btn btn-sm btn-gold" onclick="viewOrder(${i})">
+              <i class="fa-solid fa-eye me-1"></i> Xem chi tiết
+            </button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    // Xem chi tiết đơn hàng
+    function viewOrder(index) {
+      const o = orders[index];
+      orderDetail.innerHTML = `
+        <h4 class="text-gold mb-3"><i class="fa-solid fa-file-invoice me-2"></i>Thông tin đơn hàng</h4>
+        <p><strong>👤 Tên khách hàng:</strong> ${o.name}</p>
+        <p><strong>📞 Số điện thoại:</strong> ${o.phone}</p>
+        <p><strong>🏠 Địa chỉ:</strong> ${o.address}</p>
+        ${o.note ? `<p><strong>📝 Ghi chú:</strong> ${o.note}</p>` : ""}
+        <p><strong>📅 Ngày đặt:</strong> ${o.date}</p>
+        <hr>
+        ${o.order}
+        <div class="text-end mt-4">
+          <button class="btn btn-gold" onclick="closeDetail()">Đóng</button>
+        </div>
+      `;
+      orderDetail.classList.add("show");
+      window.scrollTo({ top: orderDetail.offsetTop - 60, behavior: "smooth" });
+    }
+
+    function closeDetail() {
+      orderDetail.classList.remove("show");
+    }
+
+    renderOrders();
+  </script>
+</body>
+</html>
