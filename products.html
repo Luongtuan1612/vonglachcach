@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sản phẩm - Vòng Lách Cách</title>
+  <title>Sản phẩm - Tiệm Vòng Lách Cách</title>
   <link rel="icon" href="images/logo.png">
 
   <!-- Bootstrap -->
@@ -18,6 +18,28 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .price-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff3cd;
+      color: #7a5b00;
+      border: 1px solid #ffec99;
+      font-weight: 700;
+    }
+    .promo-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #eaf7ea;
+      color: #1d6b1d;
+      border: 1px solid #c8e6c9;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -74,65 +96,115 @@
   <section class="container py-5">
     <h3 class="text-center fw-bold mb-5" data-aos="fade-down">Sản phẩm nổi bật</h3>
     <div class="row g-4">
-      <!-- Sản phẩm mẫu -->
-      <div class="col-md-3 col-sm-6" data-aos="zoom-in">
-        <div class="card border-0 shadow-sm">
-          <img src="images/products/sp1.jpg" class="card-img-top" alt="Vòng tay đá bảo hộ thiên nhiên">
+
+      <!-- dathach -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="images/products/dathach.jpg" class="card-img-top" alt="Vòng thạch anh vàng">
           <div class="card-body text-center">
-            <h5 class="card-title">Vòng tay đá bảo hộ thiên nhiên</h5>
-            <p class="text-gold fw-bold mb-2">350.000₫</p>
-            <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="1"
-              data-name="Vòng tay đá bảo hộ thiên nhiên"
-              data-price="350000"
-              data-img="images/products/sp1.jpg">Thêm vào giỏ</button>
+            <h5 class="card-title">Vòng tay Thạch Anh Vàng</h5>
+            <p class="mb-2"><span class="price-badge">70.000đ</span></p>
+            <p class="mb-3"><span class="promo-badge">Khuyến mại: Tặng túi vải bảo quản</span></p>
+            <button
+              class="btn btn-gold rounded-pill add-to-cart mb-2"
+              data-id="101"
+              data-name="Vòng tay Thạch Anh Vàng"
+              data-price="70000"
+              data-img="images/products/dathach.jpg"
+            >Thêm vào giỏ</button>
+            <button
+              class="btn btn-outline-dark rounded-pill view-detail"
+              data-name="Vòng tay Thạch Anh Vàng"
+              data-price="70.000đ"
+              data-img="images/products/dathach.jpg"
+              data-desc="Dây sáp chống nước. Đá thạch anh vàng tượng trưng cho tài lộc, thịnh vượng và năng lượng tích cực. Giúp thu hút may mắn, thành công, mang lại tinh thần lạc quan, tự tin, sáng suốt. Phù hợp người mệnh Thổ và Kim."
+              data-promo="Tặng túi vải bảo quản, freeship nội thành với đơn từ 200k."
+            >Xem chi tiết</button>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card border-0 shadow-sm">
-          <img src="images/products/sp2.jpg" class="card-img-top" alt="Vòng tay Boho Xanh Trắng">
+
+      <!-- Day sap -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="images/products/daysap.jpg" class="card-img-top" alt="Vòng Onyx & Mã não">
           <div class="card-body text-center">
-            <h5 class="card-title">Vòng tay Boho Xanh Trắng</h5>
-            <p class="text-gold fw-bold mb-2">220.000₫</p>
-            <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="2"
-              data-name="Vòng tay Boho Xanh Trắng"
-              data-price="220000"
-              data-img="images/products/sp2.jpg">Thêm vào giỏ</button>
+            <h5 class="card-title">Vòng Onyx &amp; Mã Não</h5>
+            <p class="mb-2"><span class="price-badge">79.000đ</span></p>
+            <p class="mb-3"><span class="promo-badge">Khuyến mại: Giảm 5% khi mua 2 sp</span></p>
+            <button
+              class="btn btn-gold rounded-pill add-to-cart mb-2"
+              data-id="102"
+              data-name="Vòng Onyx & Mã Não"
+              data-price="79000"
+              data-img="images/products/daysap.jpg"
+            >Thêm vào giỏ</button>
+            <button
+              class="btn btn-outline-dark rounded-pill view-detail"
+              data-name="Vòng Onyx &amp; Mã Não"
+              data-price="79.000đ"
+              data-img="images/products/daysap.jpg"
+              data-desc="Dây sáp chống thấm nước. Kết hợp đá Ngọc Onyx và Mã não tượng trưng cho sức mạnh, bình an, may mắn. Onyx xua tan năng lượng tiêu cực, tăng tự tin, tập trung; Mã não giúp cân bằng, thư giãn, thu hút năng lượng tích cực."
+              data-promo="Giảm 5% khi mua từ 2 sản phẩm."
+            >Xem chi tiết</button>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
-        <div class="card border-0 shadow-sm">
-          <img src="images/products/sp3.jpg" class="card-img-top" alt="Vòng tay Cỏ 4 Lá May Mắn">
+
+      <!-- Apatite -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="images/products/Apatite.jpg" class="card-img-top" alt="Vòng Apatite xanh">
           <div class="card-body text-center">
-            <h5 class="card-title">Vòng tay Cỏ 4 Lá May Mắn</h5>
-            <p class="text-gold fw-bold mb-2">180.000₫</p>
-            <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="3"
-              data-name="Vòng tay Cỏ 4 Lá May Mắn"
-              data-price="180000"
-              data-img="images/products/sp3.jpg">Thêm vào giỏ</button>
+            <h5 class="card-title">Vòng Apatite Xanh</h5>
+            <p class="mb-2"><span class="price-badge">105.000đ</span></p>
+            <p class="mb-3"><span class="promo-badge">Khuyến mại: Tặng phiếu vệ sinh miễn phí</span></p>
+            <button
+              class="btn btn-gold rounded-pill add-to-cart mb-2"
+              data-id="103"
+              data-name="Vòng Apatite Xanh"
+              data-price="105000"
+              data-img="images/products/Apatite.jpg"
+            >Thêm vào giỏ</button>
+            <button
+              class="btn btn-outline-dark rounded-pill view-detail"
+              data-name="Vòng Apatite Xanh"
+              data-price="105.000đ"
+              data-img="images/products/Apatite.jpg"
+              data-desc="Đá Apatite xanh kích thích năng lượng tích cực, tăng khả năng giao tiếp và sáng tạo."
+              data-promo="Tặng phiếu vệ sinh miễn phí 1 lần trong 6 tháng."
+            >Xem chi tiết</button>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="600">
-        <div class="card border-0 shadow-sm">
-          <img src="images/products/sp4.jpg" class="card-img-top" alt="Vòng tay Hoa Xanh Dễ Thương">
-          <div class="card-body text-center">
-            <h5 class="card-title">Vòng tay Hoa Xanh Dễ Thương</h5>
-            <p class="text-gold fw-bold mb-2">160.000₫</p>
-            <button class="btn btn-gold rounded-pill add-to-cart"
-              data-id="4"
-              data-name="Vòng tay Hoa Xanh Dễ Thương"
-              data-price="160000"
-              data-img="images/products/sp4.jpg">Thêm vào giỏ</button>
+
+    </div>
+  </section>
+
+  <!-- MODAL CHI TIẾT SẢN PHẨM -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img id="pmImg" src="" class="w-100 h-100 object-fit-cover" alt="Chi tiết sản phẩm">
+            </div>
+            <div class="col-md-6 p-4">
+              <h5 id="pmName" class="fw-bold mb-2"></h5>
+              <p id="pmPrice" class="mb-3 price-badge"></p>
+              <h6 class="fw-semibold">Mô tả</h6>
+              <p id="pmDesc" class="mb-3"></p>
+              <h6 class="fw-semibold">Khuyến mại</h6>
+              <p id="pmPromo" class="promo-badge mb-3"></p>
+              <button id="pmAdd" class="btn btn-gold rounded-pill">Thêm vào giỏ</button>
+              <button class="btn btn-outline-secondary rounded-pill ms-2" data-bs-dismiss="modal">Đóng</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer text-light mt-5 pt-5 pb-3">
@@ -154,9 +226,9 @@
         <div class="col-md-3">
           <h5 class="text-uppercase text-gold mb-3">Liên hệ</h5>
           <ul class="list-unstyled">
-            <li>📍 123 Đường Hoa Hồng, TP.HCM</li>
-            <li>📞 0909 123 456</li>
-            <li>✉️ contact@vonglachcach.vn</li>
+            <li>📍 Số 7, ngách 40/79, Yên Hoà, Cầu Giấy, Hà Nội</li>
+            <li>📞 0978 371 704</li>
+            <li>✉️ Tiemvonglachcach@gmail.com</li>
           </ul>
         </div>
         <div class="col-md-3">
@@ -181,6 +253,32 @@
   <script src="js/products.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    // Modal chi tiết
+    const modalEl = document.getElementById('productModal');
+    const pmImg = document.getElementById('pmImg');
+    const pmName = document.getElementById('pmName');
+    const pmPrice = document.getElementById('pmPrice');
+    const pmDesc = document.getElementById('pmDesc');
+    const pmPromo = document.getElementById('pmPromo');
+    const pmAdd = document.getElementById('pmAdd');
+
+    document.querySelectorAll('.view-detail').forEach(btn => {
+      btn.addEventListener('click', () => {
+        pmImg.src = btn.dataset.img;
+        pmName.textContent = btn.dataset.name;
+        pmPrice.textContent = btn.dataset.price;
+        pmDesc.textContent = btn.dataset.desc;
+        pmPromo.textContent = btn.dataset.promo || 'Đang cập nhật';
+        pmAdd.onclick = () => {
+          // Kích hoạt nút "Thêm vào giỏ" tương ứng (nếu có)
+          const addBtn = btn.parentElement.querySelector('.add-to-cart');
+          if (addBtn) addBtn.click();
+        };
+        const bsModal = new bootstrap.Modal(modalEl);
+        bsModal.show();
+      });
+    });
   </script>
 </body>
 

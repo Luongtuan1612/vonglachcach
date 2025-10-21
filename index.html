@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vòng Tay Handmade Cao Cấp - Lách Cách</title>
+  <title>Trang chủ - Tiệm Vòng Lách Cách</title>
   <link rel="icon" href="images/logo.png">
 
   <!-- Bootstrap -->
@@ -18,6 +18,26 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.9)),
+        url('images/about.jpeg') center/cover no-repeat fixed;
+      color: #f5f5f5;
+    }
+
+    #about img {
+      max-width: 80%;
+      height: 400px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+
+    #about img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
@@ -25,13 +45,11 @@
   <!-- HEADER -->
   <header id="mainHeader" class="header fixed-top py-3">
     <div class="container d-flex justify-content-between align-items-center">
-      <!-- Logo -->
       <a href="index.html" class="d-flex align-items-center text-decoration-none logo text-light">
         <img src="images/logo.png" alt="logo" width="45" class="me-2 rounded-circle border border-light">
         <h1 class="h5 text-uppercase fw-bold mb-0">Vòng Lách Cách</h1>
       </a>
 
-      <!-- Navbar -->
       <nav class="navbar d-none d-md-flex gap-4">
         <a href="index.html" class="nav-link text-light fw-semibold active">Trang chủ</a>
         <a href="products.html" class="nav-link text-light fw-semibold">Sản phẩm</a>
@@ -42,13 +60,11 @@
         </a>
       </nav>
 
-      <!-- Toggle (mobile) -->
       <div class="menu-toggle fs-3 text-light d-md-none" id="menuToggle">☰</div>
     </div>
 
-    <!-- Menu mobile -->
     <div class="mobile-menu bg-dark text-center py-3" id="mobileMenu" style="display: none;">
-      <a href="index.html" class="d-block py-2 text-light text-decoration-none">Trang chủ</a>
+      <a href="index.html" class="d-block py-2 text-light text-decoration-none active">Trang chủ</a>
       <a href="products.html" class="d-block py-2 text-light text-decoration-none">Sản phẩm</a>
       <a href="about.html" class="d-block py-2 text-light text-decoration-none">Giới thiệu</a>
       <a href="contact.html" class="d-block py-2 text-light text-decoration-none">Liên hệ</a>
@@ -56,51 +72,52 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero d-flex align-items-center justify-content-center text-center position-relative">
-    <div class="overlay"></div>
-    <div class="content position-relative z-1 px-3">
-      <h2 class="display-5 fw-bold mb-3" data-aos="fade-up">
-        Tinh Hoa Từ Từng Sợi Chỉ – Vòng Tay Thủ Công Cao Cấp
-      </h2>
-      <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
-        Kết hợp giữa nghệ thuật, phong thủy và cá tính riêng của bạn.
-      </p>
-      <a href="products.html" class="btn btn-gold rounded-pill px-4 py-2" data-aos="fade-up" data-aos-delay="400">
-        Khám phá ngay
-      </a>
+  <!-- ABOUT / HERO -->
+  <section class="py-5 mt-5" id="about">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-md-6" data-aos="fade-right">
+          <img src="images/banner.png" alt="handmade bracelet" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <h2 class="fw-bold text-gold mb-3">Về Vòng Lách Cách</h2>
+          <p><strong>Vòng Lách Cách</strong> là sự hòa quyện giữa tinh hoa thủ công và năng lượng đá tự nhiên, mang đến cho bạn sự cân bằng, may mắn và phong cách tinh tế.</p>
+          <p>Mỗi chiếc vòng được tạo nên từ đôi tay tỉ mỉ và tâm huyết, không chỉ là một món trang sức mà còn là tác phẩm mang theo năng lượng, cảm xúc và câu chuyện riêng của người đeo.</p>
+          <a href="products.html" class="btn btn-gold rounded-pill px-4 mt-3">Khám phá sản phẩm</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- KIẾN THỨC -->
-  <section class="py-5 bg-light" id="knowledge">
+  <!-- GIÁ TRỊ -->
+  <section class="bg-light py-5">
     <div class="container text-center">
-      <h3 class="text-uppercase fw-bold mb-5" data-aos="fade-down">Kiến Thức Thú Vị Về Vòng Tay Handmade</h3>
+      <h3 class="text-uppercase fw-bold mb-5" data-aos="fade-down">Giá trị của chúng tôi</h3>
       <div class="row gy-4">
         <div class="col-md-4" data-aos="zoom-in">
           <div class="card border-0 shadow-sm h-100">
-            <img src="images/materials.jpg" class="card-img-top" alt="Nguyên liệu vòng tay">
             <div class="card-body">
-              <h5 class="fw-semibold mb-2">1. Năng lượng từ tự nhiên</h5>
-              <p>Vòng tay handmade thường làm từ đá quý, gỗ trầm, hoặc chỉ sáp – mỗi chất liệu mang một năng lượng riêng giúp cân bằng tâm trí và thu hút may mắn.</p>
+              <i class="fa-solid fa-hand-holding-heart fs-1 text-gold mb-3"></i>
+              <h5 class="fw-semibold mb-2">Thủ công tỉ mỉ</h5>
+              <p>Mỗi sản phẩm được tạo nên bằng tay với tình yêu, sự kiên nhẫn và tỉ mỉ trong từng chi tiết nhỏ nhất.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
           <div class="card border-0 shadow-sm h-100">
-            <img src="images/history.jpg" class="card-img-top" alt="Lịch sử vòng tay">
             <div class="card-body">
-              <h5 class="fw-semibold mb-2">2. Biểu tượng văn hóa</h5>
-              <p>Ở nhiều nền văn hóa châu Á, vòng tay tượng trưng cho sự bảo vệ, tình bạn và lời chúc phúc. Mỗi màu sắc đều mang ý nghĩa tâm linh riêng.</p>
+              <i class="fa-solid fa-gem fs-1 text-gold mb-3"></i>
+              <h5 class="fw-semibold mb-2">Chất liệu tự nhiên</h5>
+              <p>Chúng tôi chọn lọc kỹ lưỡng các loại đá quý, gỗ trầm, chỉ sáp mang năng lượng phong thủy tích cực.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
           <div class="card border-0 shadow-sm h-100">
-            <img src="images/colors.png" class="card-img-top" alt="Ý nghĩa màu sắc">
             <div class="card-body">
-              <h5 class="fw-semibold mb-2">3. Phong thủy & Ý nghĩa màu sắc</h5>
-              <p>Mỗi màu sắc trên vòng tay đều mang một năng lượng phong thủy khác nhau – đỏ tượng trưng cho may mắn, xanh lá cho bình an, vàng cho thịnh vượng, trắng cho sự thanh khiết.</p>
+              <i class="fa-solid fa-seedling fs-1 text-gold mb-3"></i>
+              <h5 class="fw-semibold mb-2">Hướng đến bền vững</h5>
+              <p>Chúng tôi đề cao giá trị môi trường và phát triển bền vững trong từng khâu sản xuất.</p>
             </div>
           </div>
         </div>
@@ -128,9 +145,9 @@
         <div class="col-md-3">
           <h5 class="text-uppercase text-gold mb-3">Liên hệ</h5>
           <ul class="list-unstyled mb-3">
-            <li>📍 123 Đường Hoa Hồng, TP.HCM</li>
-            <li>📞 0909 123 456</li>
-            <li>✉️ contact@vonglachcach.vn</li>
+            <li>📍 Số 7, ngách 40/79, Yên Hoà, Cầu Giấy, Hà Nội</li>
+            <li>📞 0978 371 704</li>
+            <li>✉️ Tiemvonglachcach@gmail.com</li>
           </ul>
         </div>
         <div class="col-md-3">

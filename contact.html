@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liên hệ - Vòng Lách Cách</title>
+  <title>Liên hệ - Tiệm Vòng Lách Cách</title>
   <link rel="icon" href="images/logo.png">
 
   <!-- Bootstrap -->
@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* ==== NỀN TỐI THANH LỊCH ==== */
     body {
       background: linear-gradient(rgba(17, 17, 17, 0.95), rgba(25, 25, 25, 0.98)),
         url('images/bg-dark-pattern.jpg') center/cover fixed;
@@ -35,7 +34,6 @@
       color: #eaeaea !important;
     }
 
-    /* --- FORM LIÊN HỆ --- */
     #contactForm {
       background-color: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(255, 215, 0, 0.3);
@@ -123,9 +121,9 @@
         <h2 class="text-gold fw-bold mb-3">Liên hệ với chúng tôi</h2>
         <p class="text-secondary mb-4">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn trong thời gian sớm nhất.</p>
         <ul class="list-unstyled">
-          <li class="mb-2">📍 123 Đường Hoa Hồng, TP.HCM</li>
-          <li class="mb-2">📞 0909 123 456</li>
-          <li>✉️ contact@vonglachcach.vn</li>
+          <li class="mb-2">📍 Số 7, ngách 40/79, Yên Hoà, Cầu Giấy, Hà Nội</li>
+          <li class="mb-2">📞 0978 371 704</li>
+          <li>✉️ Tiemvonglachcach@gmail.com</li>
         </ul>
       </div>
 
@@ -134,6 +132,10 @@
           <div class="mb-3">
             <label for="name" class="form-label">Họ và tên</label>
             <input type="text" id="name" class="form-control" placeholder="Nhập họ tên..." required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại..." required pattern="^0[0-9]{9,10}$" title="Số điện thoại bắt đầu bằng 0 và có 10-11 chữ số">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -169,9 +171,9 @@
         <div class="col-md-3">
           <h5 class="text-uppercase text-gold mb-3">Liên hệ</h5>
           <ul class="list-unstyled mb-3">
-            <li>📍 123 Đường Hoa Hồng, TP.HCM</li>
-            <li>📞 0909 123 456</li>
-            <li>✉️ contact@vonglachcach.vn</li>
+            <li>📍 Số 7, ngách 40/79, Yên Hoà, Cầu Giấy, Hà Nội</li>
+            <li>📞 0978 371 704</li>
+            <li>✉️ Tiemvonglachcach@gmail.com</li>
           </ul>
         </div>
         <div class="col-md-3">
@@ -199,6 +201,17 @@
     // Xử lý gửi form
     document.getElementById('contactForm').addEventListener('submit', e => {
       e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !email || !message) {
+        alert('Vui lòng điền đầy đủ thông tin!');
+        return;
+      }
+
       alert('💌 Cảm ơn bạn đã gửi liên hệ! Chúng tôi sẽ phản hồi sớm nhất.');
       e.target.reset();
     });
