@@ -24,10 +24,15 @@
       overflow-x: hidden;
     }
 
-    .text-gold { color: #c49b63 !important; }
-    h2, h4 { color: #a36a3b !important; }
+    .text-gold {
+      color: #c49b63 !important;
+    }
 
-    /* ===== BẢNG GIỎ HÀNG ===== */
+    h2,
+    h4 {
+      color: #a36a3b !important;
+    }
+
     .table {
       background: rgba(255, 250, 245, 0.9);
       color: #3b2c1f !important;
@@ -36,82 +41,100 @@
       border: 1px solid rgba(193, 153, 97, 0.4);
       box-shadow: 0 4px 18px rgba(90, 70, 40, 0.2);
     }
+
     .table th {
       background-color: rgba(193, 153, 97, 0.25) !important;
       color: #3e2b1d !important;
       font-weight: 600;
     }
+
     .table td {
       background-color: rgba(255, 255, 255, 0.65) !important;
       color: #3b2c1f !important;
-      border-color: rgba(0, 0, 0, 0.05) !important;
       vertical-align: middle;
     }
-    .table img { border-radius: 10px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
 
-    /* ===== TỔNG CỘNG NỔI BẬT ===== */
-    .total-box {
-      display: inline-block;
-      background: linear-gradient(90deg, #fdf6e3, #fff3cd);
-      border: 2px solid rgba(202, 167, 92, 0.5);
+    .table img {
       border-radius: 10px;
-      padding: 10px 20px;
-      font-weight: 700;
-      color: #a36a3b;
-      font-size: 1.3rem;
-      box-shadow: 0 3px 10px rgba(202, 167, 92, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     }
-    .total-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(202, 167, 92, 0.35);
-    }
-
-    /* ===== POPUP FORM ===== */
-    .overlay {
-      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(5px); display: none; z-index: 1000; animation: fadeIn 0.5s ease forwards;
-    }
-
-    .popup {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
-      width: 90%; max-width: 700px; background: rgba(255, 252, 245, 0.96);
-      border: 1px solid rgba(193, 153, 97, 0.45); border-radius: 16px; padding: 35px;
-      box-shadow: 0 8px 25px rgba(90, 70, 40, 0.25); opacity: 0; transition: all 0.4s ease; z-index: 1100; display: none;
-    }
-    .popup.show { opacity: 1; transform: translate(-50%, -50%) scale(1); display: block; }
-
-    .popup h4 {
-      color: #a36a3b; font-weight: 600; border-bottom: 2px solid rgba(193, 153, 97, 0.4);
-      padding-bottom: 10px; margin-bottom: 20px;
-    }
-    .popup input, .popup textarea {
-      background-color: rgba(255, 255, 255, 0.9); border: 1px solid rgba(193, 153, 97, 0.4);
-      color: #3e2b1d; border-radius: 8px;
-    }
-    .popup input:focus, .popup textarea:focus { border-color: #c49b63; box-shadow: 0 0 10px rgba(193, 153, 97, 0.3); background-color: #fff; }
 
     .btn-gold {
       background: linear-gradient(90deg, #c49b63, #e5bf6c);
-      color: #3e2b1d; font-weight: 600; border: none; border-radius: 50px; padding: 10px 28px; transition: all 0.3s ease;
+      color: #3e2b1d;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 28px;
+      transition: all 0.3s ease;
     }
-    .btn-gold:hover { background: linear-gradient(90deg, #e5bf6c, #f3d59b); transform: translateY(-2px); }
+
+    .btn-gold:hover {
+      background: linear-gradient(90deg, #e5bf6c, #f3d59b);
+      transform: translateY(-2px);
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 90%;
+      max-width: 700px;
+      background: rgba(255, 252, 245, 0.96);
+      border: 1px solid rgba(193, 153, 97, 0.45);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 8px 25px rgba(90, 70, 40, 0.25);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 1100;
+      display: none;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      display: block;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(5px);
+      display: none;
+      z-index: 1000;
+      animation: fadeIn 0.5s ease forwards;
+    }
 
     .toast-message {
-      position: fixed; bottom: 40px; right: 30px; background: rgba(255, 250, 245, 0.95);
-      color: #3b2c1f; border: 1px solid rgba(193, 153, 97, 0.5); border-radius: 12px; padding: 15px 25px;
-      font-size: 16px; box-shadow: 0 4px 12px rgba(90, 70, 40, 0.25); opacity: 0; transform: translateY(20px);
-      transition: all 0.4s ease; z-index: 3000;
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      background: rgba(255, 250, 245, 0.95);
+      color: #3b2c1f;
+      border: 1px solid rgba(193, 153, 97, 0.5);
+      border-radius: 12px;
+      padding: 15px 25px;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(90, 70, 40, 0.25);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      z-index: 3000;
     }
-    .toast-message.show { opacity: 1; transform: translateY(0); }
+
+    .toast-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .footer {
       background: rgba(245, 235, 220, 0.95);
       border-top: 1px solid rgba(193, 153, 97, 0.3);
       color: #3e2b1d;
     }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 
@@ -119,7 +142,7 @@
   <!-- HEADER -->
   <header id="mainHeader" class="header fixed-top py-3 bg-light shadow-sm">
     <div class="container d-flex justify-content-between align-items-center">
-      <a href="index.html" class="d-flex align-items-center text-decoration-none logo text-dark">
+      <a href="index.html" class="d-flex align-items-center text-decoration-none text-dark">
         <img src="images/logo.png" alt="logo" width="45" class="me-2 rounded-circle border border-dark">
         <h1 class="h5 text-uppercase fw-bold mb-0">Tiệm Vòng Lách Cách</h1>
       </a>
@@ -154,13 +177,16 @@
           </tr>
         </thead>
         <tbody id="cart-items"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" class="text-end fw-bold">Tổng cộng:</td>
+            <td colspan="2" id="cart-total" class="fw-bold text-gold fs-5">0₫</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
     <div class="text-end">
-      <h4 class="fw-bold">Tổng cộng: 
-        <span id="cart-total" class="total-box">0₫</span>
-      </h4>
       <button id="show-form-btn" class="btn-gold mt-3">💎 Đặt ngay</button>
     </div>
   </section>
@@ -185,18 +211,27 @@
           <label class="form-label">Địa chỉ (Số nhà, Đường)</label>
           <input type="text" id="address" class="form-control" placeholder="Ví dụ: 123 Đường Hoa Hồng" required>
         </div>
+
+        <!-- ĐỊA CHỈ VIỆT NAM -->
         <div class="col-md-4">
-          <label class="form-label">Xã / Phường</label>
-          <input type="text" id="ward" class="form-control" placeholder="Nhập xã/phường..." required>
+          <label class="form-label">Tỉnh / Thành phố</label>
+          <select id="province" class="form-select" required>
+            <option value="">-- Chọn tỉnh/thành --</option>
+          </select>
         </div>
         <div class="col-md-4">
           <label class="form-label">Huyện / Quận</label>
-          <input type="text" id="district" class="form-control" placeholder="Nhập huyện/quận..." required>
+          <select id="district" class="form-select" required>
+            <option value="">-- Chọn huyện/quận --</option>
+          </select>
         </div>
         <div class="col-md-4">
-          <label class="form-label">Tỉnh / Thành phố</label>
-          <input type="text" id="province" class="form-control" placeholder="Nhập tỉnh/thành..." required>
+          <label class="form-label">Xã / Phường</label>
+          <select id="ward" class="form-select" required>
+            <option value="">-- Chọn xã/phường --</option>
+          </select>
         </div>
+
         <div class="col-12">
           <label class="form-label">Ghi chú</label>
           <textarea id="note" class="form-control" rows="3" placeholder="Nhập ghi chú (nếu có)..."></textarea>
@@ -231,4 +266,5 @@
     AOS.init({ duration: 1000, once: true });
   </script>
 </body>
+
 </html>

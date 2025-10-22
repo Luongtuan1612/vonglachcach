@@ -88,17 +88,76 @@ if (showFormBtn) {
   });
 }
 
-// Gửi form để xem đơn hàng
+// ===================== LẤY ĐỊA CHỈ VIỆT NAM =====================
+const provinceSelect = document.getElementById("province");
+const districtSelect = document.getElementById("district");
+const wardSelect = document.getElementById("ward");
+
+if (provinceSelect && districtSelect && wardSelect) {
+  // Load tỉnh
+  fetch("https://provinces.open-api.vn/api/p/")
+    .then(res => res.json())
+    .then(data => {
+      data.forEach(province => {
+        const option = document.createElement("option");
+        option.value = province.code;
+        option.textContent = province.name;
+        provinceSelect.appendChild(option);
+      });
+    });
+
+  // Khi chọn tỉnh -> load huyện
+  provinceSelect.addEventListener("change", () => {
+    districtSelect.innerHTML = '<option value="">-- Chọn huyện/quận --</option>';
+    wardSelect.innerHTML = '<option value="">-- Chọn xã/phường --</option>';
+    if (!provinceSelect.value) return;
+
+    fetch(`https://provinces.open-api.vn/api/p/${provinceSelect.value}?depth=2`)
+      .then(res => res.json())
+      .then(data => {
+        data.districts.forEach(district => {
+          const option = document.createElement("option");
+          option.value = district.code;
+          option.textContent = district.name;
+          districtSelect.appendChild(option);
+        });
+      });
+  });
+
+  // Khi chọn huyện -> load xã
+  districtSelect.addEventListener("change", () => {
+    wardSelect.innerHTML = '<option value="">-- Chọn xã/phường --</option>';
+    if (!districtSelect.value) return;
+
+    fetch(`https://provinces.open-api.vn/api/d/${districtSelect.value}?depth=2`)
+      .then(res => res.json())
+      .then(data => {
+        data.wards.forEach(ward => {
+          const option = document.createElement("option");
+          option.value = ward.name;
+          option.textContent = ward.name;
+          wardSelect.appendChild(option);
+        });
+      });
+  });
+}
+
+
+// ===================== GỬI FORM XEM ĐƠN HÀNG =====================
 const checkoutForm = document.getElementById("checkoutForm");
 if (checkoutForm) {
   checkoutForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // --- VALIDATE FORM ---
     const name = document.getElementById("name");
     const phone = document.getElementById("phone");
     const address = document.getElementById("address");
     const note = document.getElementById("note");
+
+    const provinceName = provinceSelect?.selectedOptions[0]?.text || "";
+    const districtName = districtSelect?.selectedOptions[0]?.text || "";
+    const wardName = wardSelect?.selectedOptions[0]?.text || "";
+
     let isValid = true;
     clearErrors();
 
@@ -109,12 +168,17 @@ if (checkoutForm) {
 
     const phoneRegex = /^(0[0-9]{9})$/;
     if (!phoneRegex.test(phone.value.trim())) {
-      showError(phone, "Số điện thoại không hợp lệ (phải gồm 10 chữ số, bắt đầu bằng 0)");
+      showError(phone, "Số điện thoại không hợp lệ (10 chữ số, bắt đầu bằng 0)");
       isValid = false;
     }
 
     if (address.value.trim().length < 5) {
-      showError(address, "Vui lòng nhập địa chỉ đầy đủ");
+      showError(address, "Vui lòng nhập địa chỉ cụ thể");
+      isValid = false;
+    }
+
+    if (!provinceName || !districtName || !wardName) {
+      alert("⚠️ Vui lòng chọn đầy đủ Tỉnh/Thành - Quận/Huyện - Xã/Phường!");
       isValid = false;
     }
 
@@ -125,16 +189,17 @@ if (checkoutForm) {
 
     if (!isValid) return;
 
-    // --- TẠO ĐƠN HÀNG ---
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     if (cartData.length === 0) return alert("⚠️ Giỏ hàng trống!");
 
     const total = cartData.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+    const fullAddress = `${address.value}, ${wardName}, ${districtName}, ${provinceName}`;
+
     const orderHTML = `
       <p><strong>👤 Khách hàng:</strong> ${name.value}</p>
       <p><strong>📞 Số điện thoại:</strong> ${phone.value}</p>
-      <p><strong>🏠 Địa chỉ giao hàng:</strong> ${address.value}</p>
+      <p><strong>🏠 Địa chỉ giao hàng:</strong> ${fullAddress}</p>
       ${note.value ? `<p><strong>📝 Ghi chú:</strong> ${note.value}</p>` : ""}
       <hr>
       <h5 class="text-gold mb-3">Sản phẩm đã đặt:</h5>
@@ -161,7 +226,8 @@ if (checkoutForm) {
   });
 }
 
-// ===================== HÀM HỖ TRỢ VALIDATE =====================
+
+// ===================== HỖ TRỢ VALIDATE =====================
 function showError(input, message) {
   let error = document.createElement("small");
   error.className = "text-danger mt-1 d-block";
@@ -183,17 +249,19 @@ if (finalOrderBtn) {
       name: document.getElementById("name").value,
       phone: document.getElementById("phone").value,
       address: document.getElementById("address").value,
+      province: provinceSelect?.selectedOptions[0]?.text || "",
+      district: districtSelect?.selectedOptions[0]?.text || "",
+      ward: wardSelect?.selectedOptions[0]?.text || "",
       note: document.getElementById("note").value,
       date: new Date().toLocaleString("vi-VN"),
       order: document.getElementById("orderDetails").innerHTML,
     };
 
-    // Lưu vào LocalStorage
     let orders = JSON.parse(localStorage.getItem("orders")) || [];
     orders.push(orderInfo);
     localStorage.setItem("orders", JSON.stringify(orders));
 
-    showToast("🎉 Đơn hàng đã được lưu thành công!");
+    showToast("🎉 Đơn hàng của bạn đã được gửi thành công!");
     overlay.style.display = "none";
     orderSummary.classList.remove("show");
   });
