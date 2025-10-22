@@ -24,18 +24,112 @@
       background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.9)),
         url('images/background.png') center/cover no-repeat fixed;
       color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
     }
 
-    #about img {
-      max-width: 80%;
-      height: 400px;
-      display: block;
-      margin: 0 auto;
+    /* ===== HEADER ===== */
+    #mainHeader.scrolled {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== HERO SLIDER ===== */
+    .hero-slider {
+      color: #f5f5f5;
+    }
+
+    .text-brown {
+      color: #d8c2a1;
+    }
+
+    .text-gold {
+      color: #c49b63 !important;
+    }
+
+    .image-track {
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .image-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide-img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slide-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .slider-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-btn {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      color: #3e2c1c;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .slide-btn:hover {
+      background: #c49b63;
+      color: #fff;
+    }
+
+    .prev-btn {
+      position: absolute;
+      left: -20px;
+    }
+
+    .next-btn {
+      position: absolute;
+      right: -20px;
+    }
+
+    /* ===== KIẾN THỨC ===== */
+    #knowledge {
+      color: #3b2c1f;
+    }
+
+    #knowledge h5 {
+      color: #5a3e1b;
+    }
+
+    #knowledge .card img {
       transition: transform 0.3s ease;
     }
 
-    #about img:hover {
-      transform: scale(1.05);
+    #knowledge .card:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer a:hover {
+      color: #c49b63 !important;
     }
   </style>
 </head>
@@ -47,7 +141,7 @@
     <div class="container d-flex justify-content-between align-items-center">
       <a href="index.html" class="d-flex align-items-center text-decoration-none logo text-light">
         <img src="images/logo.png" alt="logo" width="45" class="me-2 rounded-circle border border-light">
-        <h1 class="h5 text-uppercase fw-bold mb-0">Vòng Lách Cách</h1>
+        <h1 class="h5 text-uppercase fw-bold mb-0">Tiệm Vòng Lách Cách</h1>
       </a>
 
       <nav class="navbar d-none d-md-flex gap-4">
@@ -72,52 +166,65 @@
     </div>
   </header>
 
-  <!-- ABOUT / HERO -->
-  <section class="py-5 mt-5" id="about">
-    <div class="container">
-      <div class="row align-items-center gy-5">
-        <div class="col-md-6" data-aos="fade-right">
-          <img src="images/banner.png" alt="handmade bracelet" class="img-fluid rounded shadow">
+  <!-- HERO SLIDER -->
+  <section class="hero-slider text-center position-relative py-5" style="margin-top: 90px;">
+    <div class="container" data-aos="fade-up">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <div class="text-start small text-light opacity-75">
+          <p class="mb-0">Crafted by Nature<br>Woven by hand</p>
         </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <h2 class="fw-bold text-gold mb-3">Về Vòng Lách Cách</h2>
-          <p><strong>Vòng Lách Cách</strong> là sự hòa quyện giữa tinh hoa thủ công và năng lượng đá tự nhiên, mang đến cho bạn sự cân bằng, may mắn và phong cách tinh tế.</p>
-          <p>Mỗi chiếc vòng được tạo nên từ đôi tay tỉ mỉ và tâm huyết, không chỉ là một món trang sức mà còn là tác phẩm mang theo năng lượng, cảm xúc và câu chuyện riêng của người đeo.</p>
-          <a href="products.html" class="btn btn-gold rounded-pill px-4 mt-3">Khám phá sản phẩm</a>
+        <div>
+          <h1 class="fw-bold display-5 text-brown mb-2">LÁCH CÁCH</h1>
+          <p class="fst-italic">TỪ TAY - CHẠM ĐẾN TÂM HỒN</p>
         </div>
+        <div class="text-end small text-light opacity-75">
+          <p class="mb-0">Unique<br>Macrame Bracelet</p>
+        </div>
+      </div>
+
+      <div class="slider-wrapper position-relative">
+        <button class="slide-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="image-track d-flex overflow-auto gap-3 px-2">
+          <img src="images/products/anh.jpg" alt="Vòng tay 1" class="slide-img rounded shadow-sm">
+          <img src="images/products/Apatite.jpg" alt="Vòng tay 2" class="slide-img rounded shadow-sm">
+          <img src="images/products/ForestSpirit.jpg" alt="Vòng tay 3" class="slide-img rounded shadow-sm">
+          <img src="images/products/Leaflight.jpg" alt="Vòng tay 4" class="slide-img rounded shadow-sm">
+          <img src="images/products/daysap.jpg" alt="Vòng tay 5" class="slide-img rounded shadow-sm">
+        </div>
+        <button class="slide-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
 
-  <!-- GIÁ TRỊ -->
-  <section class="bg-light py-5">
+  <!-- KIẾN THỨC -->
+  <section class="py-5 bg-light" id="knowledge">
     <div class="container text-center">
-      <h3 class="text-uppercase fw-bold mb-5" data-aos="fade-down">Giá trị của chúng tôi</h3>
+      <h3 class="text-uppercase fw-bold mb-5" data-aos="fade-down">Kiến Thức Thú Vị Về Vòng Tay Handmade</h3>
       <div class="row gy-4">
         <div class="col-md-4" data-aos="zoom-in">
           <div class="card border-0 shadow-sm h-100">
+            <img src="images/materials.jpg" class="card-img-top" alt="Nguyên liệu vòng tay">
             <div class="card-body">
-              <i class="fa-solid fa-hand-holding-heart fs-1 text-gold mb-3"></i>
-              <h5 class="fw-semibold mb-2">Thủ công tỉ mỉ</h5>
-              <p>Mỗi sản phẩm được tạo nên bằng tay với tình yêu, sự kiên nhẫn và tỉ mỉ trong từng chi tiết nhỏ nhất.</p>
+              <h5 class="fw-semibold mb-2">1. Năng lượng từ tự nhiên</h5>
+              <p>Vòng tay handmade thường làm từ đá quý, gỗ trầm hoặc chỉ sáp – mỗi chất liệu mang một năng lượng riêng giúp cân bằng tâm trí và thu hút may mắn.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
           <div class="card border-0 shadow-sm h-100">
+            <img src="images/history.jpg" class="card-img-top" alt="Lịch sử vòng tay">
             <div class="card-body">
-              <i class="fa-solid fa-gem fs-1 text-gold mb-3"></i>
-              <h5 class="fw-semibold mb-2">Chất liệu tự nhiên</h5>
-              <p>Chúng tôi chọn lọc kỹ lưỡng các loại đá quý, gỗ trầm, chỉ sáp mang năng lượng phong thủy tích cực.</p>
+              <h5 class="fw-semibold mb-2">2. Biểu tượng văn hóa</h5>
+              <p>Ở nhiều nền văn hóa châu Á, vòng tay tượng trưng cho sự bảo vệ, tình bạn và lời chúc phúc. Mỗi màu sắc đều mang ý nghĩa tâm linh riêng.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
           <div class="card border-0 shadow-sm h-100">
+            <img src="images/colors.png" class="card-img-top" alt="Ý nghĩa màu sắc">
             <div class="card-body">
-              <i class="fa-solid fa-seedling fs-1 text-gold mb-3"></i>
-              <h5 class="fw-semibold mb-2">Hướng đến bền vững</h5>
-              <p>Chúng tôi đề cao giá trị môi trường và phát triển bền vững trong từng khâu sản xuất.</p>
+              <h5 class="fw-semibold mb-2">3. Phong thủy & Ý nghĩa màu sắc</h5>
+              <p>Mỗi màu sắc trên vòng tay đều mang một năng lượng phong thủy khác nhau – đỏ tượng trưng cho may mắn, xanh lá cho bình an, vàng cho thịnh vượng, trắng cho thanh khiết.</p>
             </div>
           </div>
         </div>
@@ -171,7 +278,27 @@
   <script src="js/main.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    // --- Trượt slider ảnh ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".image-track");
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+
+      if (nextBtn && prevBtn && track) {
+        nextBtn.addEventListener("click", () => {
+          track.scrollBy({ left: 300, behavior: "smooth" });
+        });
+        prevBtn.addEventListener("click", () => {
+          track.scrollBy({ left: -300, behavior: "smooth" });
+        });
+      }
+
+      // Tự động trượt mỗi 4 giây
+      setInterval(() => {
+        if (track) track.scrollBy({ left: 300, behavior: "smooth" });
+      }, 4000);
+    });
   </script>
 </body>
-
 </html>
