@@ -21,21 +21,185 @@
 
   <style>
     body {
-      background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.9)),
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.95)),
         url('images/about.jpeg') center/cover no-repeat fixed;
       color: #f5f5f5;
     }
 
-    #about img {
-      max-width: 80%;
-      height: 400px;
-      display: block;
-      margin: 0 auto;
-      transition: transform 0.3s ease;
+    /* HEADER */
+    .header {
+      backdrop-filter: blur(14px);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.85));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    #about img:hover {
-      transform: scale(1.05);
+    .nav-link.active {
+      border-bottom: 2px solid #d4a373;
+    }
+
+    /* HERO ABOUT */
+    .about-hero {
+      padding-top: 7rem;
+      padding-bottom: 3rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #f0e0c5;
+      opacity: 0.9;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-top: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #e5e5e5;
+      max-width: 520px;
+    }
+
+    /* CARD GIỚI THIỆU */
+    .about-wrapper {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      padding: 1.75rem;
+    }
+
+    .about-image {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      object-fit: cover;
+    }
+
+    @media (min-width: 992px) {
+      .about-card {
+        padding: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2.3rem;
+      }
+
+      .about-hero {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+      }
+    }
+
+    /* STEP ITEM */
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-badge {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f7f2e9;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.85));
+    }
+
+    .step-content h5 {
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .step-content p {
+      margin-bottom: 0.75rem;
+      font-size: 0.96rem;
+      color: #f1f1f1;
+    }
+
+    .step-divider {
+      height: 1px;
+      border: 0;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.45), transparent);
+      margin: 1.1rem 0;
+    }
+
+    .stone-list {
+      padding-left: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stone-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .about-cta {
+      margin-top: 1.5rem;
+    }
+
+    /* GIÁ TRỊ */
+    .values-section {
+      background: #f7f3ee;
+      color: #333;
+    }
+
+    .values-section h3 {
+      color: #4a3624;
+    }
+
+    .values-card {
+      border-radius: 18px;
+    }
+
+    .values-card i {
+      margin-bottom: 0.75rem;
+    }
+
+    .text-gold {
+      color: #d4a373 !important;
+    }
+
+    .btn-gold {
+      background: #d4a373;
+      border-color: #d4a373;
+      color: #1c130c;
+      font-weight: 600;
+    }
+
+    .btn-gold:hover {
+      background: #c18a54;
+      border-color: #c18a54;
+      color: #fff;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #121010;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+    }
+
+    /* DESKTOP TUNING */
+    @media (min-width: 992px) {
+      .about-text-align-left {
+        text-align: left !important;
+      }
     }
   </style>
 </head>
@@ -72,52 +236,125 @@
     </div>
   </header>
 
-  <!-- ABOUT -->
-  <section class="py-5 mt-5" id="about">
+  <!-- HERO + ABOUT -->
+  <section class="about-hero" id="about">
     <div class="container">
-      <div class="row align-items-center gy-5">
-        <div class="col-md-6" data-aos="fade-right">
-          <img src="images/banner.png" alt="handmade bracelet" class="img-fluid rounded shadow">
+      <!-- Hero text -->
+      <div class="row mb-3">
+        <div class="col-lg-8 about-text-align-left text-center">
+          <span class="section-eyebrow">ABOUT LÁCH CÁCH</span>
+          <h2 class="section-title text-gold">Năng lượng từ những hạt đá nhỏ bé</h2>
+          <p class="section-subtitle">
+            Tiệm vòng thủ công được tạo nên từ niềm đam mê và sự tỉ mỉ – nơi mỗi chiếc vòng là một câu chuyện, một nguồn năng lượng và một dấu ấn cá nhân.
+          </p>
         </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <h2 class="fw-bold text-gold mb-3">Về Vòng Lách Cách</h2>
-          <p><strong>Vòng Lách Cách</strong> là sự hòa quyện giữa tinh hoa thủ công và năng lượng đá tự nhiên, mang đến cho bạn sự cân bằng, may mắn và phong cách tinh tế.</p>
-          <p>Mỗi chiếc vòng được tạo nên từ đôi tay tỉ mỉ và tâm huyết, không chỉ là một món trang sức mà còn là tác phẩm mang theo năng lượng, cảm xúc và câu chuyện riêng của người đeo.</p>
-          <a href="products.html" class="btn btn-gold rounded-pill px-4 mt-3">Khám phá sản phẩm</a>
+      </div>
+
+      <!-- Nội dung chính -->
+      <div class="about-wrapper">
+        <div class="row g-4 align-items-center">
+          <!-- Ảnh -->
+          <div class="col-lg-5" data-aos="fade-right">
+            <img src="images/banner.png" alt="Vòng tay handmade đá tự nhiên" class="about-image">
+          </div>
+
+          <!-- Text -->
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="about-card">
+              <!-- STEP 1 -->
+              <div class="step">
+                <div class="step-badge">1</div>
+                <div class="step-content">
+                  <h5 class="fw-semibold">Giới thiệu tổng quan</h5>
+                  <p>
+                    <strong>Lách Cách</strong> là tiệm vòng thủ công được tạo nên từ niềm đam mê với những hạt đá nhỏ bé nhưng chứa đựng năng lượng và câu chuyện riêng.
+                    Mỗi chiếc vòng là một hành trình của cảm xúc — được kết từ đôi tay tỉ mỉ, gửi gắm mong muốn mang lại sự may mắn, bình an và phong cách riêng cho người đeo.
+                  </p>
+                </div>
+              </div>
+
+              <hr class="step-divider">
+
+              <!-- STEP 2 -->
+              <div class="step">
+                <div class="step-badge"><i class="fa-solid fa-gem"></i></div>
+                <div class="step-content">
+                  <h5 class="fw-semibold">💎 Các loại đá năng lượng</h5>
+                  <p>
+                    Tại Lách Cách, chúng tôi chọn lọc kỹ từng viên đá tự nhiên – từ thạch anh, mã não, obsidian, cẩm thạch cho đến đá mắt hổ.
+                    Mỗi loại đá mang trong mình một nguồn năng lượng riêng:
+                  </p>
+                  <ul class="stone-list">
+                    <li><strong>Thạch anh hồng</strong> – tượng trưng cho tình yêu và sự dịu dàng.</li>
+                    <li><strong>Đá mắt hổ</strong> – biểu trưng cho sức mạnh và sự tự tin.</li>
+                    <li><strong>Thạch anh tím</strong> – mang đến sự bình an và tập trung nội tâm.</li>
+                    <li><strong>Cẩm thạch</strong> – biểu trưng cho sự may mắn và thịnh vượng.</li>
+                  </ul>
+                  <p class="mb-0">
+                    Với chúng tôi, đá không chỉ là vật trang sức, mà còn là người bạn đồng hành tinh thần — giúp bạn lan tỏa năng lượng tích cực mỗi ngày.
+                  </p>
+                </div>
+              </div>
+
+              <hr class="step-divider">
+
+              <!-- STEP 3 -->
+              <div class="step">
+                <div class="step-badge"><i class="fa-solid fa-thread"></i></div>
+                <div class="step-content">
+                  <h5 class="fw-semibold">🧵 100% là handmade</h5>
+                  <p class="mb-0">
+                    Từng chiếc vòng tại Lách Cách được làm thủ công 100%, từ khâu xâu hạt, chọn dây đến kết nối charm trang trí.
+                    Chúng tôi tin rằng sự tỉ mỉ và tâm huyết của người làm tạo nên giá trị thật cho sản phẩm — vì vậy, mỗi chiếc vòng đều là duy nhất, không có bản sao hoàn toàn giống nhau.
+                    Mỗi chi tiết nhỏ là một lời gửi gắm: “<em>Lách Cách</em>” – nhẹ nhàng, tinh tế, nhưng đầy dấu ấn cá nhân.
+                  </p>
+                </div>
+              </div>
+
+              <div class="about-cta">
+                <a href="products.html" class="btn btn-gold rounded-pill px-4">
+                  Khám phá bộ sưu tập vòng tay
+                </a>
+              </div>
+            </div> <!-- ./about-card -->
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- GIÁ TRỊ -->
-  <section class="bg-light py-5">
+  <section class="values-section py-5">
     <div class="container text-center">
-      <h3 class="text-uppercase fw-bold mb-5" data-aos="fade-down">Giá trị của chúng tôi</h3>
+      <h3 class="text-uppercase fw-bold mb-4" data-aos="fade-down">Giá trị của chúng tôi</h3>
+      <p class="mb-5 text-muted mx-auto" style="max-width: 640px;" data-aos="fade-down" data-aos-delay="120">
+        Mỗi chiếc vòng là sự kết hợp giữa thẩm mỹ, chất liệu và năng lượng tích cực – được tạo nên để đồng hành cùng bạn trong hành trình mỗi ngày.
+      </p>
       <div class="row gy-4">
         <div class="col-md-4" data-aos="zoom-in">
-          <div class="card border-0 shadow-sm h-100">
+          <div class="card border-0 shadow-sm h-100 values-card">
             <div class="card-body">
-              <i class="fa-solid fa-hand-holding-heart fs-1 text-gold mb-3"></i>
+              <i class="fa-solid fa-hand-holding-heart fs-1 text-gold"></i>
               <h5 class="fw-semibold mb-2">Thủ công tỉ mỉ</h5>
-              <p>Mỗi sản phẩm được tạo nên bằng tay với tình yêu, sự kiên nhẫn và tỉ mỉ trong từng chi tiết nhỏ nhất.</p>
+              <p>Mỗi sản phẩm được tạo nên bằng tay với tình yêu, sự kiên nhẫn và chú ý đến từng chi tiết nhỏ nhất.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="card border-0 shadow-sm h-100 values-card">
             <div class="card-body">
-              <i class="fa-solid fa-gem fs-1 text-gold mb-3"></i>
+              <i class="fa-solid fa-gem fs-1 text-gold"></i>
               <h5 class="fw-semibold mb-2">Chất liệu tự nhiên</h5>
-              <p>Chúng tôi chọn lọc kỹ lưỡng các loại đá quý, gỗ trầm, chỉ sáp mang năng lượng phong thủy tích cực.</p>
+              <p>Đá tự nhiên, gỗ trầm, chỉ sáp… được chọn lọc kỹ lưỡng, ưu tiên năng lượng và độ bền khi sử dụng lâu dài.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-          <div class="card border-0 shadow-sm h-100">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card border-0 shadow-sm h-100 values-card">
             <div class="card-body">
-              <i class="fa-solid fa-seedling fs-1 text-gold mb-3"></i>
+              <i class="fa-solid fa-seedling fs-1 text-gold"></i>
               <h5 class="fw-semibold mb-2">Hướng đến bền vững</h5>
-              <p>Chúng tôi đề cao giá trị môi trường và phát triển bền vững trong từng khâu sản xuất.</p>
+              <p>Chúng tôi đề cao sự tối giản, bền vững và tôn trọng môi trường trong từng quyết định sản xuất và đóng gói.</p>
             </div>
           </div>
         </div>
@@ -126,12 +363,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer text-light mt-5 pt-5 pb-3">
+  <footer class="footer text-light mt-0 pt-5 pb-3">
     <div class="container">
       <div class="row gy-4">
         <div class="col-md-3">
           <h5 class="text-uppercase text-gold mb-3">Về chúng tôi</h5>
-          <p>Vòng Lách Cách tự hào mang đến những sản phẩm vòng tay handmade cao cấp, tinh xảo, tôn vinh phong cách cá nhân và năng lượng tích cực.</p>
+          <p>Vòng Lách Cách mang đến những chiếc vòng tay handmade tinh xảo, tôn vinh phong cách cá nhân và năng lượng tích cực cho người đeo.</p>
         </div>
         <div class="col-md-3">
           <h5 class="text-uppercase text-gold mb-3">Liên kết nhanh</h5>
@@ -153,7 +390,7 @@
         <div class="col-md-3">
           <h5 class="fw-bold text-uppercase mb-3 text-gold">Theo dõi chúng tôi</h5>
           <div class="d-flex gap-3">
-            <a href="#" class="text-light fs-4"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/people/Ti%E1%BB%87m-V%C3%B2ng-L%C3%A1ch-C%C3%A1ch/61582514755044/" class="text-light fs-4"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a>
             <a href="#" class="text-light fs-4"><i class="fab fa-tiktok"></i></a>
             <a href="#" class="text-light fs-4"><i class="fab fa-youtube"></i></a>
@@ -171,6 +408,12 @@
   <script src="js/main.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    // Toggle mobile menu
+    document.getElementById('menuToggle')?.addEventListener('click', function () {
+      const m = document.getElementById('mobileMenu');
+      if (m) m.style.display = (m.style.display === 'none' || m.style.display === '') ? 'block' : 'none';
+    });
   </script>
 </body>
 
